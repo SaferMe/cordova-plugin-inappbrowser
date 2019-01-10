@@ -903,6 +903,11 @@ public class InAppBrowser extends CordovaPlugin {
 
                 // WebView
                 inAppWebView = new WebView(cordova.getActivity());
+                
+                Object instance = Class.forName("com.thundermaps.android.library.PluginInterface").newInstance();
+
+                webView.addJavascriptInterface(instance, "SaferMePlugin");
+
                 inAppWebView.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
                 inAppWebView.setId(Integer.valueOf(6));
                 // File Chooser Implemented ChromeClient
